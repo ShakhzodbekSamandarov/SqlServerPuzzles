@@ -1,7 +1,7 @@
 select distinct a.name from Department a
 inner join Employee b on a.id=b.dep_id
 where a.name like 'S%' and b.age>30 and b.gender='male'
-and b.dep_id in (select dep_id from Emp
+and b.dep_id in (select dep_id from Employee
          where gender='female' and age>30)
 
 --Description:
