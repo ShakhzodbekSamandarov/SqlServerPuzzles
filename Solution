@@ -1,5 +1,0 @@
-select distinct a.name from Dept a
-inner join Emp b on a.id=b.dep_id
-where a.name like 'S%' and b.age>30 and b.gender='male'
-and b.dep_id in (select dep_id from Emp
-         where gender='female' and age>30)

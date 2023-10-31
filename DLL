@@ -1,0 +1,13 @@
+select distinct a.name from Department a
+inner join Employee b on a.id=b.dep_id
+where a.name like 'S%' and b.age>30 and b.gender='male'
+and b.dep_id in (select dep_id from Emp
+         where gender='female' and age>30)
+
+--Description:
+
+The task is to find department names that begin with 'S' and have both male and femail employees.
+To handle this problem, first of all I joined tables "Department" and "Employee" by using inner join. 
+The reason why I used inner join is that it combines datas from two tables whenever there are matching values in a field common to both tables. 
+For example, there is a Busines Development Department and its id is 1. In BD department, John is working. In Emp table John's Dep_id is 1. In this case, it shows us data from both tables related to John.
+Then I did some filtering to find the dep names starting with 'S' and find the dep name that has male and female workers and its workers age is above 30.
